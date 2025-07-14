@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ProductOptionsState, Size, LogoMaterial, FixVariant, ColorCode } from '../components/product-options/types';
-import { buildSku, calculatePrice } from '../utils/sku';
+import { generateSKU, calculatePrice } from '../utils/sku';
 
 interface UseProductOptionsProps {
   basePrice: number;
@@ -24,7 +24,7 @@ export function useProductOptions({ basePrice }: UseProductOptionsProps) {
     const [designName, designVersion] = state.design.split(' ');
     const isCarzo1 = state.design === 'Carzo 1.0';
     
-    const newSku = buildSku({
+    const newSku = generateSKU({
       designName,
       designVersion,
       size: state.size,
