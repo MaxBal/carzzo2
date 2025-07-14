@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  /* Typography Scale */
+  h1 {
+    @apply text-[1.785rem] font-bold leading-tight;
+  }
+
+  h2 {
+    @apply text-[1.595rem] font-semibold leading-tight;
+  }
+
+  h3 {
+    @apply text-xl font-semibold leading-snug;
+  }
+
+  /* Mobile Typography */
+  @media (max-width: 768px) {
+    html {
+      font-size: 16px;
+    }
+
+    h1 {
+      @apply text-[1.785rem];
+    }
+
+    h2 {
+      @apply text-[1.595rem];
+    }
+
+    h3 {
+      @apply text-xl;
+    }
+  }
+
+  /* Custom radio and checkbox styles with brand color */
+  input[type='radio']:checked {
+    @apply bg-brand border-brand;
+  }
+
+  input[type='checkbox']:checked {
+    @apply bg-brand border-brand;
+  }
+
+  /* Focus states for form elements */
+  input[type='radio']:focus {
+    @apply ring-2 ring-brand ring-opacity-50;
+  }
+
+  input[type='checkbox']:focus {
+    @apply ring-2 ring-brand ring-opacity-50;
+  }
+
+  /* Brand color utilities */
+  .border-brand { 
+    border-color: theme('colors.brand'); 
+  }
+  
+  .bg-brand { 
+    background-color: theme('colors.brand'); 
+  }
+  
+  .text-brand { 
+    color: theme('colors.brand'); 
+  }
+}
+
+/* Custom Classes */
+.text-body {
+  @apply text-base leading-relaxed;
+}
+
+.text-body-sm {
+  @apply text-sm leading-relaxed;
+}
+
+.text-caption {
+  @apply text-[13px] leading-normal;
+}
+
+.text-micro {
+  @apply text-[10.4px] leading-normal;
+}
+
+/* Badge Style */
+.badge {
+  @apply inline-flex items-center gap-1 px-3 py-1.5 text-[13px] font-medium rounded-full;
+}
+
+/* Blinking animation for truck icon */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.icon-blink {
+  animation: blink 1.5s ease-in-out infinite;
+}
+
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .text-body {
+    @apply text-lg leading-relaxed;
+  }
+
+  .text-body-sm {
+    @apply text-base leading-relaxed;
+  }
+
+  .text-caption {
+    @apply text-[15px] leading-normal;
+  }
+
+  .text-micro {
+    @apply text-xs leading-normal;
+  }
+}
